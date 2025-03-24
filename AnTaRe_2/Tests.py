@@ -1,10 +1,9 @@
 import pytest
-from RefactorCode import Book, Library  # Імпортуємо класи з основного файлу
+from RefactorCode import Book, Library
 
 
 @pytest.fixture
 def sample_library():
-    """Фікстура, яка створює бібліотеку та додає кілька тестових книг."""
     lib = Library()
     lib.add_book(Book("1984", "George Orwell", 1949))
     lib.add_book(Book("Brave New World", "Aldous Huxley", 1932))
@@ -28,7 +27,7 @@ def test_book_str():
 def test_add_book(sample_library):
     book = Book("Fahrenheit 451", "Ray Bradbury", 1953)
     sample_library.add_book(book)
-    assert "Fahrenheit 451" in sample_library._Library__books  # Доступ до приватного атрибута
+    assert "Fahrenheit 451" in sample_library._Library__books
 
 
 def test_add_duplicate_book(sample_library, capsys):
